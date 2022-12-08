@@ -15,13 +15,22 @@ void createPipeline(it) {
         description(desc)
 
         parameters {
-        activeChoiceParam('CHOICES') {
+        activeChoiceParam('CHOICE_1') {
             description('Allows user choose from multiple choices')
             filterable()
             choiceType('SINGLE_SELECT')
             groovyScript {
                 script('["MALE", "FEMALE"]')
                 fallbackScript('"NOT SURE"')
+            }
+        }
+        activeChoiceParam('CHOICE-2') {
+            description('Multiple choices')
+            filterable()
+            choiceType('SINGLE_SELECT')
+            groovyScript {
+                script('["choice1", "choice2"]')
+                fallbackScript('"fallback choice"')
             }
         }
         }
