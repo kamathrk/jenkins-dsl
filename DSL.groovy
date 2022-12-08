@@ -14,6 +14,17 @@ void createPipeline(it) {
     pipelineJob(jobname) {
         description(desc)
 
+        parameters {
+        activeChoiceParam('CHOICES') {
+            description('Allows user choose from multiple choices')
+            filterable()
+            choiceType('SINGLE_SELECT')
+            groovyScript {
+                script('["MALE", "FEMALE"]')
+                fallbackScript('"NOT SURE"')
+            }
+        }
+        }
         definition {
             cpsScm {
                 scm {
